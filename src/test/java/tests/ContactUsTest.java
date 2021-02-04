@@ -3,9 +3,7 @@ package tests;
 import enums.MessageSubject;
 import model.Message;
 import org.assertj.core.api.Assert;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.ContactUsFormPage;
 import pages.TopMenuPage;
@@ -14,6 +12,7 @@ import utils.PageTitleUtils;
 
 import static org.assertj.core.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ContactUsTest extends BaseTest {
 
     private TopMenuPage topMenuPage;
@@ -31,6 +30,7 @@ public class ContactUsTest extends BaseTest {
     }
 
     @Test
+    @Order(1)
     public void shouldNotAllowToSendEmptyContactUsForm() {
         topMenuPage.clickOnContactUsLink();
         contactUsFormPage.clickOnSendButton();
@@ -38,6 +38,7 @@ public class ContactUsTest extends BaseTest {
     }
 
     @Test
+    @Order(2)
     public void shouldNotAllowToSendContactUsFormWithEmailOnly() {
         topMenuPage.clickOnContactUsLink();
         contactUsFormPage.inputEmail(PageTitleUtils.INPUT_EMAIL);
@@ -47,6 +48,7 @@ public class ContactUsTest extends BaseTest {
     }
 
     @Test
+    @Order(2)
     public void shouldSendContactUsFormWithValidData(){
         topMenuPage.clickOnContactUsLink();
 
