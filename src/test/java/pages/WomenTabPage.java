@@ -16,7 +16,6 @@ public class WomenTabPage {
     @FindBy(className = "product-price")
     List<WebElement> productsPrice;
 
-
     public List<String> getProductsPrice()  {
         return productsPrice.stream()
                 .map(element -> element.getText().trim())

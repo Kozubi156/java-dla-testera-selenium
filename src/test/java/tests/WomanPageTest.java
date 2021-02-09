@@ -29,8 +29,7 @@ public class WomanPageTest extends BaseTest {
     @Test
     public void shouldSeeProductsPriceGreaterThanZero()  {
         topMenuPage.clickOnWomenTab();
-
-
+        womenTabPage.getProductsPrice();
 
     }
 }
