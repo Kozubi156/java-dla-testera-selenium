@@ -22,14 +22,14 @@ public class WomanPageTest extends BaseTest {
         assertThat(driver.getTitle()).isEqualTo(PageTitleUtils.HOME_PAGE_TITLE);
 
         topMenuPage = new TopMenuPage(driver);
-        womenTabPage = new WomenTabPage();
+        womenTabPage = new WomenTabPage(driver);
 
     }
 
     @Test
     public void shouldSeeProductsPriceGreaterThanZero()  {
         topMenuPage.clickOnWomenTab();
-        womenTabPage.getProductsPrice();
+        System.out.println(womenTabPage.getProductsPrice());
 
     }
 }
