@@ -35,7 +35,6 @@ public class WomanPageTest extends BaseTest {
     @Test
     public void shouldSeeProductsPriceGreaterThanZero()  {
         topMenuPage.clickOnWomenTab();
-//        System.out.println(womenTabPage.getProductsPrice());
         System.out.println(womenTabPage.getProductsPriceValueWithoutCurrency());
 
 

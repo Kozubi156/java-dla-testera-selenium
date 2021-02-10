@@ -27,7 +27,7 @@ public class WomenTabPage extends BasePage {
     }
 
     public List<Double> getProductsPriceValueWithoutCurrency() {
-//        wait.until(ExpectedConditions.visibilityOf((WebElement) productsPrice));
+        wait.until(ExpectedConditions.visibilityOfAllElements(productsPrice));
         return productsPrice.stream()
                 .map(price -> price.getText().replace("$","").trim())
                 .map(s -> Double.parseDouble(s))
