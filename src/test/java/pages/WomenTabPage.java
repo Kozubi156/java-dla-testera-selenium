@@ -14,16 +14,21 @@ public class WomenTabPage extends BasePage {
     @FindBy(css = ".right-block .product-price")
     List<WebElement> productsPrice;
 
+    @FindBy(className = "category-name")
+    WebElement womenCategoryBanner;
 
     public WomenTabPage(WebDriver driver) {
         super(driver);
+    }
+
+    public String getCategoryName(){
+       return womenCategoryBanner.getText();
     }
 
     public List<String> getProductsPrice() {
         return productsPrice.stream()
                 .map(element -> element.getText().trim())
                 .collect(Collectors.toList());
-
     }
 
     public List<Double> getProductsPriceValueWithoutCurrency() {

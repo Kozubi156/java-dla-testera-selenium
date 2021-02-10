@@ -1,6 +1,8 @@
 package tests;
 
 
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,6 +13,7 @@ import utils.PageTitleUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,14 +34,23 @@ public class WomanPageTest extends BaseTest {
 
     }
 
+    @Test
+    public void shouldOpenWomanTabPage(){
+        topMenuPage.clickOnWomenTab();
+        boolean isDisplayedCategoryName = womenTabPage.getCategoryName().equals("Women");
+        Assertions.assertThat(isDisplayedCategoryName).isTrue();
+    }
+
 
     @Test
     public void shouldSeeProductsPriceGreaterThanZero()  {
         topMenuPage.clickOnWomenTab();
-        System.out.println(womenTabPage.getProductsPriceValueWithoutCurrency());
+        List<Double> productWithPriceZeroOrLess = womenTabPage.getProductsPriceValueWithoutCurrency()
+                .stream()
+                .filter(price -> price <= 0.00)
+                .collect(Collectors.toList());
 
-
-
+        Assertions.assertThat(productWithPriceZeroOrLess).isEmpty();
 
 
     }
