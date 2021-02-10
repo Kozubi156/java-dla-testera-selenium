@@ -9,23 +9,29 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class WomenTabPage extends BasePage{
+public class WomenTabPage extends BasePage {
 
-    private WebDriverWait wait;
-
-
-    @FindBy(className = "product-price")
+    @FindBy(css = ".right-block .product-price")
     List<WebElement> productsPrice;
+
 
     public WomenTabPage(WebDriver driver) {
         super(driver);
     }
 
-    public List<String> getProductsPrice()  {
+    public List<String> getProductsPrice() {
         return productsPrice.stream()
                 .map(element -> element.getText().trim())
                 .collect(Collectors.toList());
 
+    }
+
+    public List<Double> getProductsPriceValueWithoutCurrency() {
+//        wait.until(ExpectedConditions.visibilityOf((WebElement) productsPrice));
+        return productsPrice.stream()
+                .map(price -> price.getText().replace("$","").trim())
+                .map(s -> Double.parseDouble(s))
+                .collect(Collectors.toList());
     }
 
 }
