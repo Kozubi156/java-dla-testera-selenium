@@ -35,7 +35,7 @@ public class WomenTabPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfAllElements(productsPrice));
         return productsPrice.stream()
                 .map(price -> price.getText().replace("$","").trim())
-                .map(s -> Double.parseDouble(s))
+                .map(price -> Double.parseDouble(price))
                 .collect(Collectors.toList());
     }
 

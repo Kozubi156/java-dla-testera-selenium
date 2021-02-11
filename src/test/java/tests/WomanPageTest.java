@@ -21,7 +21,6 @@ public class WomanPageTest extends BaseTest {
 
     private TopMenuPage topMenuPage;
     private WomenTabPage womenTabPage;
-    private WebDriverWait wait;
 
     @BeforeEach
     public void setupTest() {

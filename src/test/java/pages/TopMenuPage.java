@@ -20,6 +20,20 @@ public class TopMenuPage extends BasePage{
     @FindBy(linkText = "Women")
     WebElement womenTab;
 
+    @FindBy(id = "search_query_top")
+    WebElement searchFieldTop;
+
+    @FindBy(className = "button-search")
+    WebElement submitSearchButton;
+
+    public void inputSearchQuery(String queryText){
+        searchFieldTop.sendKeys(queryText);
+    }
+
+    public void clickOnSubmitSearchButton(){
+        submitSearchButton.click();
+    }
+
     public void clickOnContactUsLink(){
         contactUsLink.click();
     }
