@@ -32,22 +32,13 @@ public class SearchResultsTest extends BaseTest {
     }
 
     @Test
-    public void shouldBySearchAndSeeFoundedProduct(){
+    public void shouldBySearchAndSeeFoundedProduct() {
         topMenuPage.inputSearchQuery(PageTitleUtils.SEARCH_PRODUCT_NAME);
         topMenuPage.clickOnSubmitSearchButton();
+        List<String> productsPrice = womenTabPage.getProductsPrice();
 
-        System.out.println(searchResultsPage.getProduct());
-
-//        boolean isFoundedProductNameEqualToSearchQuery =
-//                searchResultsPage.getProductName().equals(PageTitleUtils.SEARCH_PRODUCT_NAME);
-//
-//        List<String> productsPrice = womenTabPage.getProductsPrice();
-//
-//        System.out.println(searchResultsPage.getProductName());
-//
-//        Assertions.assertThat(isFoundedProductNameEqualToSearchQuery).isTrue();
-//        Assertions.assertThat(productsPrice).isNotEmpty();
-
-
+        assertThat(searchResultsPage.isProductCounterDisplayed()).isTrue();
+        assertThat(searchResultsPage.getProductName()).isEqualTo(PageTitleUtils.SEARCH_PRODUCT_NAME);
+        assertThat(productsPrice).isNotEmpty();
     }
 }

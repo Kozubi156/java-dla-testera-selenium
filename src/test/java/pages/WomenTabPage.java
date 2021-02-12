@@ -14,6 +14,7 @@ public class WomenTabPage extends BasePage {
     @FindBy(css = ".right-block .product-price")
     List<WebElement> productsPrice;
 
+
     @FindBy(className = "category-name")
     WebElement womenCategoryBanner;
 
@@ -35,7 +36,7 @@ public class WomenTabPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfAllElements(productsPrice));
         return productsPrice.stream()
                 .map(price -> price.getText().replace("$","").trim())
-                .map(price -> Double.parseDouble(price))
+                .map(Double::parseDouble)
                 .collect(Collectors.toList());
     }
 

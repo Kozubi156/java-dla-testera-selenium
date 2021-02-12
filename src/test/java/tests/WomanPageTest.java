@@ -37,7 +37,7 @@ public class WomanPageTest extends BaseTest {
     public void shouldOpenWomanTabPage(){
         topMenuPage.clickOnWomenTab();
         boolean isDisplayedCategoryName = womenTabPage.getCategoryName().equals("Women");
-        Assertions.assertThat(isDisplayedCategoryName).isTrue();
+        assertThat(isDisplayedCategoryName).isTrue();
     }
 
 
@@ -49,7 +49,7 @@ public class WomanPageTest extends BaseTest {
                 .filter(price -> price <= 0.00)
                 .collect(Collectors.toList());
 
-        Assertions.assertThat(productWithPriceZeroOrLess).isEmpty();
+        assertThat(productWithPriceZeroOrLess).isEmpty();
 
 
     }
