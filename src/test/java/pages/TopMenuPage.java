@@ -26,6 +26,9 @@ public class TopMenuPage extends BasePage{
     @FindBy(className = "button-search")
     WebElement submitSearchButton;
 
+    @FindBy(className = "login")
+    WebElement loginButton;
+
     public void inputSearchQuery(String queryText){
         searchFieldTop.sendKeys(queryText);
     }
@@ -40,6 +43,10 @@ public class TopMenuPage extends BasePage{
 
     public void clickOnWomenTab(){
         womenTab.click();
+    }
+
+    public void clickOnLoginButton(){
+        loginButton.click();
     }
 
 
