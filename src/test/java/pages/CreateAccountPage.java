@@ -30,7 +30,8 @@ public class CreateAccountPage extends BasePage{
     WebElement passwordFiled;
 
     public void sendCreateAccountForm(PersonalInformation personalInformation){
-        wait.until(ExpectedConditions.visibilityOf(firstNameField));
+        wait.until(ExpectedConditions.visibilityOf(genderMrRadioBox));
+        genderMrRadioBox.click();
         firstNameField.sendKeys(personalInformation.getFirstName());
         lastNameField.sendKeys(personalInformation.getLastName());
         emailField.sendKeys(personalInformation.getEmail());

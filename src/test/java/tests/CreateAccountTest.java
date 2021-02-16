@@ -38,6 +38,7 @@ public class CreateAccountTest extends BaseTest {
 
         PersonalInformation personalInformation = new PersonalInformation();
 
+        personalInformation.setGenderMr(personalInformation.getGenderMr());
         personalInformation.setFirstName(faker.address().firstName());
         personalInformation.setLastName(faker.address().lastName());
         personalInformation.setEmail(faker.internet().emailAddress());
@@ -45,6 +46,7 @@ public class CreateAccountTest extends BaseTest {
 
         createAccountPage.sendCreateAccountForm(personalInformation);
         assertThat(personalInformation.getFirstName()).isNotEmpty();
+
 
     }
 }
