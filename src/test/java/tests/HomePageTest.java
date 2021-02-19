@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.PopularItemsPage;
-import utils.PageTitleUtils;
+import utils.PageUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,7 +20,7 @@ public class HomePageTest extends BaseTest {
     public void setupTest() {
         driver = new ChromeDriver();
         driver.get(BASE_URL);
-        assertThat(driver.getTitle()).isEqualTo(PageTitleUtils.HOME_PAGE_TITLE);
+        assertThat(driver.getTitle()).isEqualTo(PageUtils.HOME_PAGE_TITLE);
 
         popularItemsPage = new PopularItemsPage(driver);
     }

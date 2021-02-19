@@ -1,14 +1,12 @@
 package tests;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.PopularItemsPage;
 import pages.SearchResultsPage;
 import pages.TopMenuPage;
 import pages.WomenTabPage;
-import utils.PageTitleUtils;
+import utils.PageUtils;
 
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class SearchResultsTest extends BaseTest {
     public void setupTest() {
         driver = new ChromeDriver();
         driver.get(BASE_URL);
-        assertThat(driver.getTitle()).isEqualTo(PageTitleUtils.HOME_PAGE_TITLE);
+        assertThat(driver.getTitle()).isEqualTo(PageUtils.HOME_PAGE_TITLE);
 
         topMenuPage = new TopMenuPage(driver);
         searchResultsPage = new SearchResultsPage(driver);
@@ -33,12 +31,12 @@ public class SearchResultsTest extends BaseTest {
 
     @Test
     public void shouldBySearchAndSeeFoundedProduct() {
-        topMenuPage.inputSearchQuery(PageTitleUtils.SEARCH_PRODUCT_NAME);
+        topMenuPage.inputSearchQuery(PageUtils.SEARCH_PRODUCT_NAME);
         topMenuPage.clickOnSubmitSearchButton();
         List<String> productsPrice = womenTabPage.getProductsPrice();
 
         assertThat(searchResultsPage.isProductCounterDisplayed()).isTrue();
-        assertThat(searchResultsPage.getProductName()).isEqualTo(PageTitleUtils.SEARCH_PRODUCT_NAME);
+        assertThat(searchResultsPage.getProductName()).isEqualTo(PageUtils.SEARCH_PRODUCT_NAME);
         assertThat(productsPrice).isNotEmpty();
     }
 }

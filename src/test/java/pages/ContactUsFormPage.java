@@ -49,17 +49,6 @@ public class ContactUsFormPage extends BasePage {
         return isAlertBoxDisplayed(greenAlertBox);
     }
 
-    private boolean isAlertBoxDisplayed(WebElement box) {
-        wait.until(ExpectedConditions.visibilityOf(box));
-
-        boolean isDisplayed = false;
-        try {
-            isDisplayed = box.isDisplayed();
-        } catch (NoSuchElementException e) {
-        }
-
-        return isDisplayed;
-    }
 
     public void inputEmail(String email) {
         emailFiled.sendKeys(email);

@@ -12,5 +12,7 @@ public class PersonalInformation {
     private String email;
     private String password;
     private String dayOfBirth;
+    private String monthOfBirth;
+    private String yearOfBirth;
 
 }
