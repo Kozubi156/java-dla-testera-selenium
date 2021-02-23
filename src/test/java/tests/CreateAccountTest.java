@@ -5,6 +5,7 @@ import model.Address;
 import model.PersonalInformation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 import utils.PageUtils;
@@ -19,6 +20,8 @@ public class CreateAccountTest extends BaseTest {
     private TopMenuPage topMenuPage;
     private SignInPage signInPage;
     private CreateAccountPage createAccountPage;
+    private BasePage basePage;
+    private Faker faker;
 
     @BeforeEach
     public void setupTest() {
@@ -29,16 +32,17 @@ public class CreateAccountTest extends BaseTest {
         topMenuPage = new TopMenuPage(driver);
         createAccountPage = new CreateAccountPage(driver);
         signInPage = new SignInPage(driver);
+        faker = new Faker(new Locale("en-US"));
 
     }
 
     @Test
     public void shouldCreateNewAccount() {
-        Faker faker = new Faker(new Locale("en-US"));
 
         topMenuPage.clickOnLoginButton();
         signInPage.inputEmailForCreateAccount(faker.internet().emailAddress());
         signInPage.clickOnCreateAccountButton();
+
 
         PersonalInformation personalInformation = new PersonalInformation();
         personalInformation.setGenderMr(personalInformation.getGenderMr());
@@ -73,6 +77,7 @@ public class CreateAccountTest extends BaseTest {
 
         assertThat(topMenuPage.getAccountName()).contains(personalInformation.getFirstName());
         assertThat(topMenuPage.getAccountName()).contains(personalInformation.getLastName());
-        assertThat(createAccountPage.isInfoAccountDisplayed()).isTrue();
+        assertThat(createAccountPage.isElementDisplayed()).isTrue();
+
     }
 }

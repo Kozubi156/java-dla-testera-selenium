@@ -142,19 +142,7 @@ public class CreateAccountPage extends BasePage{
         submitAccountButton.click();
     }
 
-    @Override
-    public boolean isElementDisplayed(WebElement webElement) {
-        return super.isElementDisplayed(webElement);
+    public boolean isElementDisplayed() {
+        return super.isElementDisplayed(infoAccount);
     }
-
-//    public boolean isInfoAccountDisplayed() {
-//        wait.until(ExpectedConditions.visibilityOf(infoAccount));
-//        boolean isDisplayed = false;
-//        try {
-//            isDisplayed = infoAccount.isDisplayed();
-//        } catch (NoSuchElementException e) {
-//            System.out.println("Element is not visible");
-//        }
-//        return isDisplayed;
-//    }
 }
