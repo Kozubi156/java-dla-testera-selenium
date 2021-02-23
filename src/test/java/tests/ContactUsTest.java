@@ -47,7 +47,7 @@ public class ContactUsTest extends BaseTest {
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     public void shouldSendContactUsFormWithValidData() {
         topMenuPage.clickOnContactUsLink();
 

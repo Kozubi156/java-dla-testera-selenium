@@ -14,5 +14,4 @@ public class PersonalInformation {
     private String dayOfBirth;
     private String monthOfBirth;
     private String yearOfBirth;
-
 }

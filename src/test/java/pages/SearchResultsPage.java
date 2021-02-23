@@ -24,17 +24,9 @@ public class SearchResultsPage extends BasePage {
         return productName.getText().trim();
     }
 
-
-    public boolean isProductCounterDisplayed() {
-        wait.until(ExpectedConditions.visibilityOf(productCounter));
-        boolean isDisplayed = false;
-        try {
-            isDisplayed = productCounter.isDisplayed();
-        } catch (NoSuchElementException e) {
-            System.out.println("Unable to find element");
-        }
-
-        return isDisplayed;
+    @Override
+    public boolean isElementDisplayed(WebElement webElement) {
+        return super.isElementDisplayed(webElement);
     }
 }
 

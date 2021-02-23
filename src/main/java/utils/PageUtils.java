@@ -1,5 +1,9 @@
 package utils;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PageUtils {
 
     public static final String HOME_PAGE_TITLE = "My Store";
@@ -13,6 +17,4 @@ public class PageUtils {
     public static final String STATE = "Alabama";
     public static final String STATE_ABBREVIATION = "AL";
     public static final String COUNTRY = "United States";
-
-
 }

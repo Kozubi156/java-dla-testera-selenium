@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import utils.PageUtils;
 
 public class CreateAccountPage extends BasePage{
     public CreateAccountPage(WebDriver driver) {
@@ -93,7 +92,6 @@ public class CreateAccountPage extends BasePage{
     @FindBy(className = "info-account")
     WebElement infoAccount;
 
-
     public void clickSpecialOfferCheckBox(){
         specialOfferCheckBox.click();
     }
@@ -126,9 +124,6 @@ public class CreateAccountPage extends BasePage{
         address2Field.sendKeys(address.getAddressLine2());
         cityField.sendKeys(address.getCity());
 
-//        Select selectStatDropDownList = new Select(stateFiled);
-//        selectStatDropDownList.selectByVisibleText(PageUtils.STATE);
-
         Select stateFiledDropDownList = new Select(stateFiled);
         stateFiledDropDownList.selectByVisibleText(address.getState());
 
@@ -147,18 +142,19 @@ public class CreateAccountPage extends BasePage{
         submitAccountButton.click();
     }
 
-
-    public boolean isInfoAccountDisplayed() {
-        wait.until(ExpectedConditions.visibilityOf(infoAccount));
-        boolean isDisplayed = false;
-        try {
-            isDisplayed = infoAccount.isDisplayed();
-        } catch (NoSuchElementException e) {
-            System.out.println("Element is not visible");
-        }
-        return isDisplayed;
+    @Override
+    public boolean isElementDisplayed(WebElement webElement) {
+        return super.isElementDisplayed(webElement);
     }
 
-
-
+//    public boolean isInfoAccountDisplayed() {
+//        wait.until(ExpectedConditions.visibilityOf(infoAccount));
+//        boolean isDisplayed = false;
+//        try {
+//            isDisplayed = infoAccount.isDisplayed();
+//        } catch (NoSuchElementException e) {
+//            System.out.println("Element is not visible");
+//        }
+//        return isDisplayed;
+//    }
 }

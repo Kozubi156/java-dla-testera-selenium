@@ -18,15 +18,14 @@ public class BasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public boolean isAlertBoxDisplayed(WebElement box) {
-        wait.until(ExpectedConditions.visibilityOf(box));
+    public boolean isElementDisplayed(WebElement webElement) {
+        wait.until(ExpectedConditions.visibilityOf(webElement));
         boolean isDisplayed = false;
         try {
-            isDisplayed = box.isDisplayed();
+            isDisplayed = webElement.isDisplayed();
         } catch (NoSuchElementException e) {
             System.out.println("Element is not visible");
         }
-
         return isDisplayed;
     }
 

@@ -18,5 +18,4 @@ public class Address {
     private String homePhone;
     private String mobilePhone;
     private String addressAlias;
-
 }
